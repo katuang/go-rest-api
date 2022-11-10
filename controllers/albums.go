@@ -9,7 +9,6 @@ import (
 type CreateAlbumInput struct {
 	Title	string	`json:"title" binding:"required"`
 	Artist	string	`json:"artist" binding:"required"`
-	Price	float64	`json:"price" binding:"required"`
 }
 
 func GetAlbums(c *gin.Context) {
@@ -28,7 +27,7 @@ func CreateAlbum(c *gin.Context) {
 	}
 
 	// Create book
-	album := models.Album{Title: input.Title, Artist: input.Artist, Price: input.Price}
+	album := models.Album{Title: input.Title, Artist: input.Artist}
 	models.DB.Create(&album)
 
 	c.JSON(http.StatusOK, gin.H{"data": album})
