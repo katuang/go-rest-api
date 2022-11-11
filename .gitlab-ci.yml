@@ -37,4 +37,4 @@ deploy:
     name: production
     url: http://your_server_IP
   only:
-    - master
+    - main
